@@ -1,15 +1,13 @@
-import {
-  MagnifyingGlassCircleIcon,
-  MagnifyingGlassIcon,
-  MapPinIcon,
-} from "@heroicons/react/24/solid";
+/* eslint-disable no-unused-vars */
+import { MapPinIcon } from "@heroicons/react/24/solid";
 import { HiCalendar, HiMinus, HiPlus } from "react-icons/hi";
 import { useRef, useState } from "react";
-import useOutsideClick from "../hooks/useOutsideClick";
+import useOutsideClick from "../../hooks/useOutsideClick";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
+import { createSearchParams, useNavigate, useSearchParams } from "react-router-dom";
 
 function Header() {
   const [destination, setDestination] = useState("");
@@ -30,6 +28,9 @@ function Header() {
     },
   ]);
 
+  const [searchParams , setSearchParams] = useSearchParams()
+  const navigate = useNavigate();
+
   const handleOptions = (name, operation) => {
     setOptions((prevOptions) => {
       return {
@@ -39,9 +40,25 @@ function Header() {
     });
   };
 
+  const onHandleSearch = () => {
+    const encodedParams = createSearchParams({
+      date: JSON.stringify(date),
+      options: JSON.stringify(options),
+      destination,
+    });
+    // setSearchParams(encodedParams)
+    navigate({
+      pathname : "/hotels" , 
+      search : encodedParams.toString()
+    });
+  };
+
   return (
     <div className=" header  ">
       <div className="headerSearch justify-evenly ">
+        <h1 className=" font-bold  text-lg text-gray-800 hover:text-indigo-700 cursor-pointer ">
+          Home
+        </h1>
         {/* input */}
         <div className="headerSearchItem gap-x-1 ">
           <MapPinIcon className=" size-7 headerIcon locationIcon " />
@@ -101,7 +118,7 @@ function Header() {
         <div className=" w-[2px] h-7 bg-indigo-200    "></div>
         {/* search button */}
         <div className="headerSearchItem">
-          <button className="headerSearchBtn">
+          <button className="headerSearchBtn" onClick={() => onHandleSearch()}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

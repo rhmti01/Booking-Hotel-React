@@ -109,14 +109,14 @@
 /*  location list */
 .nearbyLocation {
   max-width: 1280px;
-  margin: 2rem auto;
+  margin: 3rem auto;
 }
 .nearbyLocation h2 {
   margin-bottom: 1rem;
 }
 .locationList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
 }
 
