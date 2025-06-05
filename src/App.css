@@ -48,7 +48,7 @@
   top: 2rem;
   width: 220px;
   z-index: 1000;
-  border: 1px solid var(--primary-100);  
+  border: 1px solid var(--primary-100);
 }
 .guestOptionItem {
   display: flex;
@@ -116,17 +116,49 @@
 }
 .locationList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.locationItem {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  cursor: pointer;
 }
 
 .locationItem img {
-  width: 100%;
-  height: 20rem;
+  margin: 0rem auto;
+  width: 400px;
+  height: 270px;
   object-fit: cover;
   object-position: center;
   border-radius: 0.5rem;
-  margin-bottom: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+@media (min-width: 290px) and (max-width: 695px) {
+  .locationItemDesc {
+    width: 400px; 
+    margin: auto;
+  }
+}
+
+@media (min-width: 695px) and (max-width: 1044px) {
+  .locationItemDesc {
+    width: 390px;
+    margin: auto;
+  }
+}
+
+.locationItemDesc {
+  margin-top: 10px;
 }
 
 .locationItemDesc > :not(:last-child) {
@@ -134,7 +166,7 @@
 }
 
 .locationItem .locationItemDesc .name {
-  color: var(--text-400);
+  color: var(--text-500);
 }
 .locationItem .locationItemDesc .location {
   font-weight: 500;
@@ -146,7 +178,7 @@
 }
 
 .locationItem .locationItemDesc .price span {
-  color: var(--text-400);
+  color: var(--text-700);
   font-weight: 400;
 }
 
@@ -180,12 +212,17 @@
   flex: 1;
   background-color: var(--text-100);
   position: relative;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
 }
 .mapContainer button.getLocation {
   padding: 0.3rem 0.5rem;
   font-size: 0.7rem;
   font-weight: bold;
-  border-radius: 0.5rem;
+  border-radius: 30px;
   position: absolute;
   bottom: 1rem;
   left: 1rem;
@@ -193,15 +230,22 @@
   box-shadow: 0 0 10px var(--primary-600);
   color: #fff;
   z-index: 1000;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
 }
 .map {
   height: 100%;
 }
 
 .searchList {
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 30px 0;
+  padding-top: 25px; 
+  padding-left: 20px;
 }
 
 .searchList .searchItem {
@@ -218,7 +262,7 @@
   margin-bottom: 0.3rem;
 }
 .searchItem .searchItemDesc .name {
-  color: var(--text-400);
+  color: var(--text-700);
 }
 .searchItem .searchItemDesc .location {
   font-weight: 500;
@@ -227,27 +271,34 @@
   font-weight: 500;
   display: flex;
   align-items: center;
+  color: var(--text-700);
 }
 
 .searchItem .searchItemDesc .price span {
-  color: var(--text-400);
+  color: var(--text-700);
   font-weight: 400;
 }
 
 /* app layout */
 .appLayout {
-  margin-top: 1rem;
+  margin: 1rem auto  0;
+  max-width: 1280px;
   display: flex;
   justify-content: space-between;
   height: calc(100vh - 130px);
-  /* background-color: var(--text-100); */
   align-items: stretch;
+  background-color: rgba(242, 234, 234, 0.6);
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
 }
 
 .sidebar {
+  height: 100%;
   width: 35%;
   overflow-y: scroll;
-  padding-right: 1rem;
 }
 
 .searchItem.current-hotel {

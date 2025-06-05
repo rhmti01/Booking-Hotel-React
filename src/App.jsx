@@ -4,21 +4,24 @@ import Header from "./components/Header/Header";
 import LocationList from "./components/LocationList/LocationList";
 import AppLayout from "./components/AppLayout/AppLayout";
 import { Routes, Route } from "react-router-dom";
+import Hotels from "./components/Hotels/Hotels";
+import SingleHotel from "./components/SingleHotel/SingleHotel";
+import HotelProvider from "./context/HotelProvider";
 
 function App() {
   return (
-    <div>
+    <HotelProvider>
       <Toaster />
       <Header />
       {/* <LocationList/> */}
-      <Routes>
+      <Routes >
         <Route path="/" element={<LocationList />} />
         <Route path="hotels" element={<AppLayout />}>
-          <Route  index element={<div>hotels</div>} />
-          <Route  path=":id" element={<div>single hotel</div>} />
+          <Route index element={<Hotels />} />
+          <Route path=":id" element={<SingleHotel />} />
         </Route>
       </Routes>
-    </div>
+    </HotelProvider>
   );
 }
 

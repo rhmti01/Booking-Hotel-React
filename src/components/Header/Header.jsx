@@ -7,19 +7,25 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
-import { createSearchParams, useNavigate, useSearchParams } from "react-router-dom";
+import {
+  createSearchParams,
+  Link,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
 function Header() {
-  const [destination, setDestination] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [destination, setDestination] = useState(
+    searchParams.get("destination") || " "
+  );
   const [openOptions, setOpenOptions] = useState(false);
-  const [options, setOptions] = useState([
-    {
-      adult: 1,
-      children: 0,
-      room: 1,
-    },
-  ]);
   const [openDate, setOpenDate] = useState(false);
+  const [options, setOptions] = useState({
+    adult: 1,
+    children: 0,
+    room: 1,
+  });
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -28,7 +34,6 @@ function Header() {
     },
   ]);
 
-  const [searchParams , setSearchParams] = useSearchParams()
   const navigate = useNavigate();
 
   const handleOptions = (name, operation) => {
@@ -42,27 +47,39 @@ function Header() {
 
   const onHandleSearch = () => {
     const encodedParams = createSearchParams({
+      destination,
       date: JSON.stringify(date),
       options: JSON.stringify(options),
-      destination,
     });
     // setSearchParams(encodedParams)
     navigate({
-      pathname : "/hotels" , 
-      search : encodedParams.toString()
+      pathname: "/hotels",
+      search: encodedParams.toString(),
+    });
+  };
+
+  const onHandleKeyRun = (e) => {
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        onHandleSearch();
+      }
     });
   };
 
   return (
     <div className=" header  ">
       <div className="headerSearch justify-evenly ">
-        <h1 className=" font-bold  text-lg text-gray-800 hover:text-indigo-700 cursor-pointer ">
+        <Link
+          to="/"
+          className=" font-bold  text-lg text-gray-800 hover:text-indigo-700 cursor-pointer "
+        >
           Home
-        </h1>
+        </Link>
         {/* input */}
         <div className="headerSearchItem gap-x-1 ">
           <MapPinIcon className=" size-7 headerIcon locationIcon " />
           <input
+            onKeyDown={(e) => onHandleKeyRun(e)}
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
             type="text"

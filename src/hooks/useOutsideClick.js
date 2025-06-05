@@ -5,7 +5,6 @@ export default function useOutsideClick({ ref, setOpenOptions , exceptionId }) {
 
     const handleClickOutside = (e) => {
       if (ref.current && !ref.current.contains(e.target) && e.target.id !== exceptionId ) {
-        console.log("outside click");
         setOpenOptions();
       }
     };
