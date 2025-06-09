@@ -17,7 +17,7 @@ import {
 function Header() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [destination, setDestination] = useState(
-    searchParams.get("destination") || " "
+    searchParams.get("destination") || ""
   );
   const [openOptions, setOpenOptions] = useState(false);
   const [openDate, setOpenDate] = useState(false);
@@ -76,7 +76,7 @@ function Header() {
           Home
         </Link>
         {/* input */}
-        <div className="headerSearchItem gap-x-1 ">
+        <div className="headerSearchItem gap-x-4 ">
           <MapPinIcon className=" size-7 headerIcon locationIcon " />
           <input
             onKeyDown={(e) => onHandleKeyRun(e)}
@@ -84,7 +84,7 @@ function Header() {
             onChange={(e) => setDestination(e.target.value)}
             type="text"
             placeholder="where to go?"
-            className="font-medium w-32  headerSearchInput"
+            className="font-medium w-44  headerSearchInput ring-gray-300 focus:bg-slate-100 ring-[1px] rounded-lg "
             name="destination"
             id="destination"
           />

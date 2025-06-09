@@ -9,9 +9,6 @@ function HotelProvider({ children }) {
   const destination = searchParams.get("destination")?.trim() || "";
   const room = JSON.parse(searchParams.get("options"))?.room;
 
-  console.log(destination);
-  console.log(room);
-
   const { isLoading, data: hotels } = useFetch(
     "http://localhost:5000/hotels",
     `q=${destination || ""}&accommodates_gte=${room || 1}`
