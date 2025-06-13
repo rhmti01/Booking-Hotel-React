@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import Loader from "../Loader/Loader";
-import { useHotels } from "../../context/HotelProvider";
+import { useHotels } from "../context/HotelProvider";
 
 function Hotels() {
-  const { isLoading, hotels } = useHotels();
+  const { isLoading, hotels , currentHotel  } = useHotels();
 
   if (isLoading)
     return (
@@ -35,7 +35,7 @@ function Hotels() {
               className=" my-3 "
               to={`/hotels/${item.id}?lat=${item.latitude}&lng=${item.longitude}  `}
             >
-              <div className="searchItem">
+              <div className={`   ${item.id === currentHotel?.id ? "current-hotel" : ""}   searchItem`}>
                 <img src={item.xl_picture_url} alt={item.name} />
                 <div className="searchItemDesc">
                   <p className="location text-lg ">{item.smart_location}</p>
