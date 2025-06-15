@@ -249,7 +249,7 @@
   border-radius: 1rem;
 }
 .searchItem .searchItemDesc p {
-  font-size:medium;
+  font-size: medium;
   margin-top: 0.1rem;
   margin-bottom: 0.2rem;
 }
@@ -294,7 +294,7 @@
   overflow-y: scroll;
 }
 
-.sidebar .rooom{
+.sidebar .rooom {
   padding-top: 50px;
 }
 
@@ -317,14 +317,33 @@
 .bookmarkList {
   margin-top: 1rem;
 }
+
+.bookmarkTitle {
+  margin: 40px 0 30px ;
+  text-align: center;
+  font-weight: 600;
+  font-size: 22px;
+}
+
 .bookmarkItem {
-  margin-bottom: 1rem;
-  border: 1px solid var(--text-400);
+  width: 80%;
+  margin: 1rem auto;
+  border: 1px solid rgba(128, 128, 128, 0.75);
   border-radius: 1rem;
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.619);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+
+.bookmarkItem:hover{
+  background-color: #e9e1e1;
 }
 
 .bookmarkList .bookmarkItem.current-bookmark {
@@ -342,37 +361,82 @@
   height: 1.1rem;
 }
 
+.backToList{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 20px 0;
+  background-color: rgba(29, 23, 23, 0.905);
+  color: white;
+  padding: 7px 9px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.newbookmrkTitle{
+  margin: 35px 0;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+}
+
 /* form */
 
 .form .formControl {
+  width: 90%;
+  margin:10px auto;
   margin-bottom: 1rem;
   position: relative;
 }
 
 .formControl label {
   display: block;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.4rem;
+  margin-left: 5px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.79);
 }
 
 .formControl input {
-  border: 1px solid var(--text-400);
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  border: 1.5px solid rgba(0, 0, 0, 0.228);
+  padding: 0.7rem;
+  border-radius: 0.7rem;
   width: 100%;
+  background-color: white;
+  font-size: 15px;
+  -webkit-border-radius: 0.7rem;
+  -moz-border-radius: 0.7rem;
+  -ms-border-radius: 0.7rem;
+  -o-border-radius: 0.7rem;
+}
+
+.formControl input:focus{
+  border: 1.5px solid #5100ff;
+  background-color: #b390ff08;
 }
 
 .buttons {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; 
+    width: 90%;
+  margin: 19px auto;
 }
 
 .btn {
   padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  border-radius: 0.6rem;
+  -webkit-border-radius: 0.6rem;
+  -moz-border-radius: 0.6rem;
+  -ms-border-radius: 0.6rem;
+  -o-border-radius: 0.6rem;
 }
 .btn--primary {
-  background-color: var(--primary-600);
+  background-color: #5100ff;
   color: #fff;
 }
 
@@ -383,7 +447,7 @@
 .formControl .flag {
   position: absolute;
   right: 1rem;
-  top: 50%;
+  top: 2.4rem;
 }
 
 a.active {

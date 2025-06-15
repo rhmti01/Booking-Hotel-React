@@ -1035,49 +1035,49 @@
   ],
   "bookmarks": [
     {
-      "cityName": "Abalessa",
-      "country": "Algeria",
-      "countryCode": "DZ",
-      "latitude": "23.18455079512732",
-      "longitude": "3.795523257510883",
-      "host_location": "Abalessa Algeria",
+      "cityName": "Tehran",
+      "country": "Iran",
+      "countryCode": "IR",
+      "latitude": "35.6892",
+      "longitude": "51.3890",
+      "host_location": "Tehran, Iran",
       "id": 1
     },
     {
-      "cityName": "Mahidasht",
-      "country": "Iran (Islamic Republic of)",
+      "cityName": "Mashhad",
+      "country": "Iran",
       "countryCode": "IR",
-      "latitude": "34.32869425037187",
-      "longitude": "46.724183117022086",
-      "host_location": "Mahidasht Iran (Islamic Republic of)",
+      "latitude": "36.2605",
+      "longitude": "59.6168",
+      "host_location": "Mashhad, Iran",
+      "id": 2
+    },
+    {
+      "cityName": "Tabriz",
+      "country": "Iran",
+      "countryCode": "IR",
+      "latitude": "38.0216",
+      "longitude": "46.3530",
+      "host_location": "El Goli, Tabriz, Iran",
+      "id": 3
+    },
+    {
+      "cityName": "Isfahan",
+      "country": "Iran",
+      "countryCode": "IR",
+      "latitude": "32.6546",
+      "longitude": "51.6680",
+      "host_location": "Isfahan, Iran",
       "id": 4
     },
     {
-      "cityName": "Sanandaj",
-      "country": "Iran (Islamic Republic of)",
+      "cityName": "Shiraz",
+      "country": "Iran",
       "countryCode": "IR",
-      "latitude": "35.31372444726279",
-      "longitude": "47.03114358752335",
-      "host_location": "Sanandaj Iran (Islamic Republic of)",
+      "latitude": "29.5918",
+      "longitude": "52.5836",
+      "host_location": "Shiraz, Iran",
       "id": 5
-    },
-    {
-      "cityName": "A Dakhla Oasis",
-      "country": "Egypt",
-      "countryCode": "EG",
-      "latitude": "25.02090651422749",
-      "longitude": "29.09059588509316",
-      "host_location": "A Dakhla Oasis Egypt",
-      "id": 7
-    },
-    {
-      "cityName": "Baba Kot",
-      "country": "Pakistan",
-      "countryCode": "PK",
-      "latitude": "28.43528783183169",
-      "longitude": "67.78003711374224",
-      "host_location": "Baba Kot Pakistan",
-      "id": 8
     }
   ]
 }
