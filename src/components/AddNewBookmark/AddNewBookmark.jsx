@@ -6,6 +6,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Loader from "../Loader/Loader";
 import ReactCountryFlag from "react-country-flag";
+import { useBookmarks } from "../context/BookmarkList";
 
 const BASE_GEOCODING_URL = "https://api-bdc.net/data/reverse-geocode-client";
 
@@ -17,6 +18,7 @@ function AddNewBookmark() {
   const [countryCode, setCountryCode] = useState("");
   const [isLoadingGeocode, setIsLoadingGeocode] = useState(false);
   const [geocodeError, setGeocodeError] = useState(false);
+  const { createBookmarkHotel } = useBookmarks();
 
   useEffect(() => {
     if (!lat || !lng) return;
@@ -29,7 +31,6 @@ function AddNewBookmark() {
         );
         if (!data.countryCode)
           throw new Error("This location is not city , select a valid land!");
-
         setCityName(data.city || data.locality || "");
         setCountry(data.countryName || data.locality || "");
         setCountryCode(data.countryCode);
@@ -42,17 +43,30 @@ function AddNewBookmark() {
     fetchLocationData();
   }, [lat, lng]);
 
-  function handleBack(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/bookmark");
-  }
-
-  function handleAddNewBookmark(e) {
-    e.preventDefault();
-    if (country.length < 4 || country.length < 4) {
+    if (!cityName || !country) {
       toast.error(" Select your bookmark location from map first! ");
+      return;
     }
-  }
+
+    const newBookmark = {
+      cityName,
+      country,
+      countryCode,
+      latitude: lat,
+      longitude: lng,
+      host_locations: cityName + "  " + country,
+    };
+
+    try {
+      await createBookmarkHotel(newBookmark);
+      navigate("/bookmark");
+    } catch (error) {
+      toast.error("Failed to add bookmark");
+      console.error(error);
+    }
+  };
 
   if (isLoadingGeocode) {
     return (
@@ -73,7 +87,7 @@ function AddNewBookmark() {
   return (
     <div className=" w-full  ">
       <h2 className=" newbookmrkTitle ">Bookmark New Location</h2>
-      <form className="form">
+      <form className="form" onSubmit={(e) => handleSubmit(e)}>
         <div className="formControl">
           <label htmlFor="city">CityName</label>
           <input
@@ -105,13 +119,17 @@ function AddNewBookmark() {
           />
         </div>{" "}
         <div className=" buttons ">
-          <button onClick={(e) => handleBack(e)} className="btn btn--back">
-            &larr; back
-          </button>
           <button
-            onClick={(e) => handleAddNewBookmark(e)}
-            className="btn btn--primary"
+            type="button"
+            className="btn btn--back"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/bookmark");
+            }}
           >
+            &larr; Back
+          </button>
+          <button type="submit" className="btn btn--primary">
             Add
           </button>
         </div>

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import {
   TileLayer,
   Marker,
@@ -8,14 +7,13 @@ import {
   useMapEvent,
 } from "react-leaflet";
 import { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useGeoLocation from "../../hooks/useGeoLocation";
 import useUrlLocation from "../../hooks/useUrlLocation";
 
 function Map({ markerLocations }) {
-  // const { hotels } = useHotels();
   const [mapCenter, setMapCenter] = useState([50, 4]);
-  const [lat,lng] = useUrlLocation()
+  const [lat, lng] = useUrlLocation();
 
   const {
     isLoading: isLoadingPosition,
@@ -44,7 +42,8 @@ function Map({ markerLocations }) {
         scrollWheelZoom={true}
       >
         <button onClick={getPosition} className="getLocation ">
-          {isLoadingPosition ? "Loading..." : "Use Your Location"}
+          {isLoadingPosition ? 
+            "Loading..." : "Use Your Location"}
         </button>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -79,4 +78,28 @@ function DetectClick() {
   });
 
   return null;
+}
+
+function GetLocationBtn() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="size-5  "
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+      />
+    </svg>
+  );
 }

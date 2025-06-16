@@ -7,17 +7,17 @@ import Bookmark from "../Bookmark/Bookmark";
 import ReactCountryFlag from "react-country-flag";
 
 function SingleBookmark() {
+  const navigate = useNavigate();
   const { id } = useParams();
-  const { getBookmarkHotel, isLoadingCurrentBookmark, currentBookmark } =
+  const { getBookmarkHotel, isLoading, currentBookmark } =
     useBookmarks();
 
-  const navigate = useNavigate();
 
   useEffect(() => {
     getBookmarkHotel(id);
   }, [id]);
 
-  if (isLoadingCurrentBookmark || !currentBookmark) {
+  if (isLoading || !currentBookmark) {
     return (
       <div className=" flex items-center justify-center h-full">
         <Loader />
