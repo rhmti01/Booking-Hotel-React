@@ -1066,6 +1066,33 @@
       "longitude": "3.971471786499024",
       "host_locations": "La Flamengrie  France",
       "id": 1
+    },
+    {
+      "cityName": "Rocquigny",
+      "country": "France",
+      "countryCode": "FR",
+      "latitude": "50.014799234787844",
+      "longitude": "3.972860161839159",
+      "host_locations": "Rocquigny  France",
+      "id": 2
+    },
+    {
+      "cityName": "Clairfontaine",
+      "country": "France",
+      "countryCode": "FR",
+      "latitude": "49.9798189265777",
+      "longitude": "3.979110717773438",
+      "host_locations": "Clairfontaine  France",
+      "id": 6
+    },
+    {
+      "cityName": "Marigny-Marmande",
+      "country": "France",
+      "countryCode": "FR",
+      "latitude": "46.9465122958623",
+      "longitude": "0.45593261718750006",
+      "host_locations": "Marigny-Marmande  France",
+      "id": 7
     }
   ]
 }
