@@ -9,7 +9,7 @@
 .headerSearch {
   display: flex;
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
   align-items: center;
   gap: 1rem;
   border: 1px solid #ebe9e9;
@@ -104,6 +104,17 @@
   color: #fff;
   padding: 0.6rem;
   border-radius: 1rem;
+}
+
+.headerLoginBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    background-color: var(--primary-600);
+  color: #ffffff;
+  padding: 0.50rem;
+  border-radius: 1rem;
+  border: 2px solid var(--primary-600);
 }
 
 /*  location list */
@@ -439,6 +450,18 @@
   -ms-border-radius: 0.6rem;
   -o-border-radius: 0.6rem;
 }
+
+.login_btn {
+  margin: 20px auto;
+  width: 80px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.6rem;
+  -webkit-border-radius: 0.6rem;
+  -moz-border-radius: 0.6rem;
+  -ms-border-radius: 0.6rem;
+  -o-border-radius: 0.6rem;
+}
+
 .btn--primary {
   background-color: #5100ff;
   color: #fff;
@@ -460,19 +483,30 @@ a.active {
 }
 
 .loginContainer {
-  margin: 2rem auto;
+  margin: 12rem auto;
   max-width: 25rem;
   border: 1px solid var(--text-300);
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 1.2rem;
+  -webkit-border-radius: 1.2rem;
+  -moz-border-radius: 1.2rem;
+  -ms-border-radius: 1.2rem;
+  -o-border-radius: 1.2rem;
 }
 
 .loginContainer button {
-  width: 100%;
+  width: 90%;
+  margin: 10px 19px;
+  font-weight: 500;
+  font-size: 17px;
+  padding: 10px 0 ;
 }
 
 .loginContainer h2 {
   margin-bottom: 1rem;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
 }
 
 .icon.logout {

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { MapPinIcon } from "@heroicons/react/24/solid";
-import { HiCalendar, HiMinus, HiPlus } from "react-icons/hi";
+import { HiCalendar, HiLogout, HiMinus, HiPlus } from "react-icons/hi";
 import { useRef, useState } from "react";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import "react-date-range/dist/styles.css";
@@ -10,9 +10,11 @@ import { format } from "date-fns";
 import {
   createSearchParams,
   Link,
+  NavLink,
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
+import { useAuth } from "../context/AuthProvider";
 
 function Header() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -51,7 +53,7 @@ function Header() {
       date: JSON.stringify(date),
       options: JSON.stringify(options),
     });
-    // setSearchParams(encodedParams)
+    setSearchParams(encodedParams);
     navigate({
       pathname: "/hotels",
       search: encodedParams.toString(),
@@ -66,6 +68,11 @@ function Header() {
     });
   };
 
+  const onHandleLogin = (e) => {
+    e.preventDefault();
+    navigate("/login");
+  };
+
   return (
     <div className=" header  ">
       <div className="headerSearch justify-evenly ">
@@ -74,6 +81,12 @@ function Header() {
           className=" font-bold  text-lg text-gray-800 hover:text-indigo-700 cursor-pointer "
         >
           Home
+        </Link>{" "}
+        <Link
+          to="/bookmark"
+          className=" font-bold  text-lg text-gray-800 hover:text-indigo-700 cursor-pointer "
+        >
+          Bookmarks
         </Link>
         {/* input */}
         <div className="headerSearchItem gap-x-4 ">
@@ -152,6 +165,8 @@ function Header() {
             </svg>
           </button>
         </div>
+        {/* login button */}
+        <User />
       </div>
     </div>
   );
@@ -211,6 +226,40 @@ function OptionItem({ type, options, minLimit, handleOptions }) {
           <HiPlus className="icon" />
         </button>
       </div>
+    </div>
+  );
+}
+
+function User() {
+  const { user, isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
+  return (
+    <div className="">
+      {isAuthenticated ? (
+        <div className=" flex gap-x-3 items-center justify-center ">
+          <span className=" font-medium  ">{user.name}</span>
+          <button
+            onClick={handleLogout}
+            className=" text-[17px] cursor-pointer text-indigo-600 font-bold  "
+          >
+            Logout
+          </button>
+        </div>
+      ) : (
+        <NavLink
+          className={"text-[17px] cursor-pointer font-bold  "}
+          to="/login"
+        >
+          {" "}
+          Login{" "}
+        </NavLink>
+      )}
     </div>
   );
 }

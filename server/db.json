@@ -1068,31 +1068,31 @@
       "id": 1
     },
     {
-      "cityName": "Rocquigny",
+      "cityName": "La Flamengrie",
       "country": "France",
       "countryCode": "FR",
-      "latitude": "50.014799234787844",
-      "longitude": "3.972860161839159",
-      "host_locations": "Rocquigny  France",
+      "latitude": "49.98026047702005",
+      "longitude": "3.964347839355469",
+      "host_locations": "La Flamengrie  France",
       "id": 2
     },
     {
-      "cityName": "Clairfontaine",
+      "cityName": "Sommeron",
       "country": "France",
       "countryCode": "FR",
-      "latitude": "49.9798189265777",
-      "longitude": "3.979110717773438",
-      "host_locations": "Clairfontaine  France",
-      "id": 6
+      "latitude": "49.96082842379121",
+      "longitude": "3.956086922279992",
+      "host_locations": "Sommeron  France",
+      "id": 10
     },
     {
-      "cityName": "Marigny-Marmande",
+      "cityName": "Moustier-en-Fagne",
       "country": "France",
       "countryCode": "FR",
-      "latitude": "46.9465122958623",
-      "longitude": "0.45593261718750006",
-      "host_locations": "Marigny-Marmande  France",
-      "id": 7
+      "latitude": "50.084683518129665",
+      "longitude": "4.178543130025827",
+      "host_locations": "Moustier-en-Fagne  France",
+      "id": 12
     }
   ]
 }

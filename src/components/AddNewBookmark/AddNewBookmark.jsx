@@ -43,8 +43,8 @@ function AddNewBookmark() {
     fetchLocationData();
   }, [lat, lng]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     if (!cityName || !country) {
       toast.error(" Select your bookmark location from map first! ");
       return;
@@ -62,6 +62,7 @@ function AddNewBookmark() {
     try {
       await createBookmarkHotel(newBookmark);
       navigate("/bookmark");
+      return;
     } catch (error) {
       toast.error("Failed to add bookmark");
       console.error(error);
@@ -87,7 +88,7 @@ function AddNewBookmark() {
   return (
     <div className=" w-full  ">
       <h2 className=" newbookmrkTitle ">Bookmark New Location</h2>
-      <form className="form" onSubmit={(e) => handleSubmit(e)}>
+      <div className="form">
         <div className="formControl">
           <label htmlFor="city">CityName</label>
           <input
@@ -129,11 +130,18 @@ function AddNewBookmark() {
           >
             &larr; Back
           </button>
-          <button type="submit" className="btn btn--primary">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              handleSubmit(e);
+            }}
+            type="button"
+            className="btn btn--primary"
+          >
             Add
           </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 }
